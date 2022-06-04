@@ -2,28 +2,20 @@ import React from 'react';
 
 interface Props{
     value: number;
+    onClick: () => void;
 }
 
 interface State{
     value: any;
 }
 
-class Square extends React.Component<Props, State> {
-    constructor(props: Props){
-        super(props);
-        this.state = {
-            value: props.value
-        };
-    }
-
-    render() {
+function Square<Props, State>(props) {
         return (
             <button className="square" 
-                onClick={() => this.setState({value: 'X'})}>
-                {this.state.value}
+                onClick={props.onClick}>
+                {props.value}
             </button>
         )
-    }
 }
 
 export default Square;
